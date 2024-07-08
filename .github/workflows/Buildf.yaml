@@ -16,12 +16,12 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '4.7.2'
     - name: Install .NET Framework Developer Pack
       run: choco install netfx-4.7.2-devpack
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: msbuild /p:Platform="x64" /p:Configuration="Release"
     - name: Test
       run: dotnet test --no-build --verbosity normal
