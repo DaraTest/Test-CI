@@ -19,6 +19,13 @@ jobs:
       with:
         dotnet-version: 8.0.204
 
+    - name: Install .NET Framework Developer Pack
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends \
+          apt-transport-https \
+          dotnet-sdk-8.0
+
     - name: Install dependencies
       run: dotnet restore
 
